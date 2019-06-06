@@ -70,7 +70,7 @@ At this point, your game is probably running in demo mode, let's pause it:
 
 Even without textual feedback on the console, you'll notice the game is
 now paused. In general, commands are quiet and only print back error
-messages.
+messages. (You will be able to unpause the game using the command ``emu.unpause()`` but don't do it right now if you continue this walkthrough.
 
 You can check at runtime which version of MAME you are running, with:
 
@@ -156,3 +156,10 @@ On some of them, you can also inspect and manipulate memory and state:
     [MAME]> mem = cpu.spaces["program"]
     [MAME]> print(mem:read_i8(0xC000))
     41
+Autoboot
+-----------
+You can lauch automatically a Lua script in MAME. You just need to save your script in a file, and launch this command:
+::
+    > mame YOUR_ROM -autoboot_delay 2 -autoboot_script YOUR_SCRIPT.lua
+
+The ``autoboot_delay`` is the number of second MAME will wait before launching the script.
